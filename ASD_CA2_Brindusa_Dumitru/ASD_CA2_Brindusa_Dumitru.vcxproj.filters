@@ -26,10 +26,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Binary Tree Source\BinaryTree.h">
+    <ClInclude Include="BinaryTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\Binary Tree Source\BSTNode.h">
+    <ClInclude Include="BSTNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
