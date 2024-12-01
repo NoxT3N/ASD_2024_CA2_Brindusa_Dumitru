@@ -170,6 +170,7 @@
     <ClInclude Include="BSTNode.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TreeMap.h" />
+    <ClInclude Include="TreeMapPair.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

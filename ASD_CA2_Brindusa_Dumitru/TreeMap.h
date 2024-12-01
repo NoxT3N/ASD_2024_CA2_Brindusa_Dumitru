@@ -1,10 +1,11 @@
 #pragma once
 #include "BinaryTree.h"
+#include "TreeMapPair.h"
 
 template <class K, class V>
 class TreeMap
 {
-	BinaryTree<std::pair<K, V>> tree;
+	BinaryTree<TreeMapPair<K,V>> tree;
 
 public:
 	TreeMap();
@@ -32,7 +33,7 @@ void TreeMap<K, V>::clear() {
 
 template <class K, class V>
 bool TreeMap<K, V>::containsKey(K key){
-	auto pair = std::make_pair(key, V{});
+	TreeMapPair<K, V> pair(key, V());
 
 	try {
 		tree.get(pair);
@@ -55,10 +56,10 @@ BinaryTree<K> TreeMap<K, V>::keySet() {
 
 template <class K, class V>
 void TreeMap<K, V>::put(K key, V value) {
-	auto pair = std::make_pair(key, value);
+	TreeMapPair<K, V> pair(key, value);
 	tree.add(pair);
 }
-
+ 
 template <class K, class V>
 int TreeMap<K, V>::size() {
 	return tree.count();
