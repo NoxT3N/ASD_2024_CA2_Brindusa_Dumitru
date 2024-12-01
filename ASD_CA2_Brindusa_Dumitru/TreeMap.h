@@ -17,6 +17,7 @@ public:
 	bool removeKey(K key);
 	V& operator[](K key); //Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
 	~TreeMap();
+
 };
 
 template <class K, class V>
@@ -26,12 +27,20 @@ TreeMap<K, V>::TreeMap() {
 
 template <class K, class V>
 void TreeMap<K, V>::clear() {
-
+	tree.clear();
 }
 
 template <class K, class V>
 bool TreeMap<K, V>::containsKey(K key){
-	
+	auto pair = std::make_pair(key, V{});
+
+	try {
+		tree.get(pair);
+		return true;
+	}
+	catch (const std::logic_error&) {
+		return false;
+	}
 }
 
 template <class K, class V>
@@ -46,12 +55,13 @@ BinaryTree<K> TreeMap<K, V>::keySet() {
 
 template <class K, class V>
 void TreeMap<K, V>::put(K key, V value) {
-
+	auto pair = std::make_pair(key, value);
+	tree.add(pair);
 }
 
 template <class K, class V>
 int TreeMap<K, V>::size() {
-
+	return tree.count();
 }
 
 template <class K, class V>
