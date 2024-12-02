@@ -213,7 +213,11 @@ void BinaryTree<T>::printInOrder()
 template<class T>
 void BinaryTree<T>::printInOrder(BSTNode<T> *node)
 {
-	
+	if (node != nullptr) {
+		printInOrder(node->getLeft());
+		std::cout << node->getItem() << " ";
+		printInOrder(node->getRight());
+	}
 }
 
 template<class T>
