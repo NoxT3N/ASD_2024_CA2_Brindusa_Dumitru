@@ -52,7 +52,17 @@ V& TreeMap<K, V>::get(K key) {
 
 template <class K, class V>
 BinaryTree<K> TreeMap<K, V>::keySet() {
+	BinaryTree<K> kTree;
 
+	TreeMapPair<K, V>* pairsArray = tree.toArray();
+	int treeSize = tree.count();
+
+	for (int i = 0; i < treeSize; i++) {
+		kTree.add(pairsArray[i].key);
+	}
+	delete[] pairsArray;
+
+	return kTree;
 }
 
 template <class K, class V>
@@ -68,12 +78,18 @@ int TreeMap<K, V>::size() {
 
 template <class K, class V>
 bool TreeMap<K, V>::removeKey(K key) {
-
+	TreeMapPair<K, V> pair(key, V());
+	return tree.remove(pair);
 }
 
 template <class K, class V>
 V& TreeMap<K, V>::operator[](K key) {
-
+	try {
+		return get(key);
+	}
+	catch (const std::logic_error&) {
+		throw std::logic_error("Key not found");
+	}
 }
 
 template <class K, class V>
