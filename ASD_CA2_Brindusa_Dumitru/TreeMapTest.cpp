@@ -12,9 +12,9 @@ namespace TreeMapTest {
 				map.put(1, "A");
 				map.put(2, "B");
 				map.put(3, "C");
-				//Assert::AreSame(3, map.size());
+		
 				map.clear();
-				Assert::AreSame(0, map.size());
+				Assert::AreEqual(0, map.size());
 			
 
 			}
@@ -26,7 +26,12 @@ namespace TreeMapTest {
 				Assert::AreEqual(true, map.containsKey(2));
 			}
 			TEST_METHOD(TestGet) {
+				TreeMap<int, int> map;
+				map.put(1, 10);
+				map.put(2, 20);
+				map.put(3, 30);
 
+				Assert::AreEqual(20, map.get(2));
 			}
 			TEST_METHOD(TestKeySet) {
 

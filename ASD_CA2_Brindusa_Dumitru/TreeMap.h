@@ -46,7 +46,8 @@ bool TreeMap<K, V>::containsKey(K key){
 
 template <class K, class V>
 V& TreeMap<K, V>::get(K key) {
-
+	TreeMapPair<K, V> pair(key, V());
+	return tree.get(pair).value;
 }
 
 template <class K, class V>
